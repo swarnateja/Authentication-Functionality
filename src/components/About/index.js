@@ -1,21 +1,15 @@
-import {withRouter} from 'react-router-dom'
-import Cookies from 'js-cookie'
-
 import './index.css'
+import Header from '../Header'
+import LogoutButton from '../LogoutButton'
 
-const LogoutButton = props => {
-  const onClickLogout = () => {
-    const {history} = props
+const About = () => (
+  <div>
+    <Header />
+    <div className="about-container">
+      <h1 className="about-heading">About Route</h1>
+      <LogoutButton />
+    </div>
+  </div>
+)
 
-    Cookies.remove('jwt_token')
-    history.replace('/login')
-  }
-
-  return (
-    <button type="button" className="logout-button" onClick={onClickLogout}>
-      Logout
-    </button>
-  )
-}
-
-export default withRouter(LogoutButton)
+export default About
